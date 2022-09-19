@@ -12,6 +12,7 @@ class Bootcamp
     #PART 1 
 
 
+
     def name 
         @name
     end 
@@ -38,7 +39,7 @@ class Bootcamp
         else  
             return false 
         end 
-
+    return true 
     end 
     
     def enrolled?(string)
@@ -50,12 +51,27 @@ class Bootcamp
     #PART 2
 
 
+
     def student_to_teacher_ratio
         @students.length / @teachers.length
     end 
 
-
     def add_grade(str, num)
-        @grades[str] = num 
+        if enrolled?(str)
+            @grades[str] << num 
+        else  
+            return false 
+        end 
+    return true 
+    end 
+
+    def num_grades(str)
+        @grades[str].length 
+    end 
+
+    def average_grade(str)
+        return nil if !enrolled?(str) || @grades[str] == []
+        grades = @grades[str]
+        grades.sum / num_grades(str)
     end 
 end
