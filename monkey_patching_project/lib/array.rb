@@ -20,6 +20,17 @@ class Array
         end 
     end 
 
+    def median 
+       counter = self.count { |ele| ele}
+       if counter.odd? 
+
+       elsif counter.even? 
+
+       else 
+           return nil
+       end 
+    end 
+
 
   
 end
