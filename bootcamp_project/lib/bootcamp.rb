@@ -29,8 +29,19 @@ class Bootcamp
     end 
 
     def enroll(string)
-        @students << string
+        if @students.length < @student_capacity
+            @students << string && return true 
+        else  
+            return false 
+        end 
+
     end 
     
 
+
+
+    def enrolled?(string)
+        return true if @students.include?(string)
+    return false
+    end 
 end
